@@ -127,7 +127,7 @@ include('includes/navbar.php');
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>ID </th>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Identificación</th>
             <th>Correo</th>
