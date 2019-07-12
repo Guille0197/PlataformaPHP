@@ -1,0 +1,3 @@
+#Page error 404
+
+ErrorDocument 404 http://localhost/admin/404.php
