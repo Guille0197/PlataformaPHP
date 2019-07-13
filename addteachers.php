@@ -95,9 +95,8 @@ include('includes/navbar.php');
 
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Añadir Profesores</h1>
-          <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#addadminprofile">
+          <button type="button" class=" d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#addadminprofile">
             <i class="fas fa-user-plus"></i> Añadir profesores</button>
-            
       </div>
   </div>
 

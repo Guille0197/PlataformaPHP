@@ -73,7 +73,8 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
                                                 <div class="form-group col-md-6">
                                                     <label>Seleccione un departamento</label>
                                                     <select name="department_edit" class="form-control" required>
-                                                        <option>Seleccione un departamento</option>
+                                                        <option><?php echo $row['department'] ?></option>
+                                                        <option> ------ </option>
                                                         <option value="Español">Español</option>
                                                         <option value="Matemáticas">Matemáticas</option>
                                                         <option value="Inglés">Inglés</option>
@@ -84,7 +85,8 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
                                                 <div class="form-group col-md-6">
                                                     <label>Seleccione un género</label>
                                                     <select name="gender_edit" class="form-control" required>
-                                                        <option>Seleccione género</option>
+                                                        <option><?php echo $row['gender'] ?></option>
+                                                        <option> ------ </option>
                                                         <option value="Masculino"> Masculino</option>
                                                         <option value="Femenino"> Femenino</option>
                                                     </select>
@@ -97,22 +99,12 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
                                                 
                                                 <div class="form-group col-md-6">
                                                     <label>Descripción</label>
-                                                    <input type="text" name="description_edit" value="<?php echo $row['description'] ?>" class="form-control">
+                                                    <input type="text" name="description_edit" value="<?php echo $row['description'] ?>" class="form-control" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Cargar una imagen de perfil</label>
-                                                    <input type="file" name="image_teachers" id="image_teachers"  required>
-                                                </div>
-
-                                                <!-- <div class="form-group col-md-12">
-                                                        <label for="customFile">Cargar una imagen de perfil</label>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile" required>
-                                                            <label class="custom-file-label" for="customFile">Cargar imagen</label>
-                                                        </div>
-                                                    </div>-->
-                                                        
-                                                
+                                                    <input type="file" name="image_teachers" id="image_teachers"  >
+                                                </div>      
                                             </div>
                                                 <a href="addteachers.php" class="btn btn-danger btn-lg">Cancelar</a>
                                                 <button type="submit" name="update_teachers_btn" class="btn btn-success btn-lg"> Actualizar </button> 
