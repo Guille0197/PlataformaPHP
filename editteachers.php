@@ -38,8 +38,7 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
 ?>
                                         <form action="code.php" method="POST" enctype="multipart/form-data">
                                             <div class="form-group col-md-6 img-fluid">
-                                            <?php echo '<img src="upload/'.$row['images'].'" width:"350px;" height:"300px;">' ?>       
-                                            <!-- <img src="getImage.php?id=1" style="width:350px; height:300px;" class="rounded float-left" alt="..."> -->
+                                            <?php echo '<img src="upload/'.$row['image_teachers'].' "class="rounded float-left" style="width:200px; height:230px;"">'?>   
                                                 </div>
                                             <div class="form-row">
 
