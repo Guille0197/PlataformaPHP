@@ -136,7 +136,6 @@ include('includes/navbar.php');
             <th>Departamento</th>
             <th>Género</th>
             <th>Contraseña</th>
-            <th>Tipo de usuario</th>
             <th>Editar</th>
             <th>Borrar</th>
           </tr>
@@ -157,7 +156,6 @@ include('includes/navbar.php');
               <td> <?php echo $row['department']; ?> </td>
               <td> <?php echo $row['gender']; ?> </td>
               <td> <?php echo $row['password']; ?> </td>
-              <td> <?php echo $row['usertype']; ?> </td>
 
               <td>
                 <form action="editteachers.php" method="post">
