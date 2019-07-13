@@ -31,23 +31,55 @@ include('includes/navbar.php');
 </div>
 <!-- End of Main Content -->
 
+<?php
+      if (isset($_SESSION['success']) && $_SESSION['success'] !='') {
+
+        echo '<h2> '.$_SESSION['success'].' </h2>';
+        unset($_SESSION['success']);
+      }
+      if (isset($_SESSION['status']) && $_SESSION['status'] !='') {
+
+        echo '<h2 class="bg-info"> '.$_SESSION['status'].'</h2>';
+        unset($_SESSION['status']);
+      }
+  ?>
+
 <!--Content all-professors-->
 <div class="contacts-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
             <div class="row">
+        <?php
 
-            
-                <div class="card" style="width: 18rem; margin: 5px;">
-                    <img src="https://www.superprof.mx/imagenes/anuncios/profesor-home-profesora-britanica-nativa-inglaterra-con-anos-experiencia-clases-todo-niveles-cdmx.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and
-                            make up the bulk of the card's
-                            content.</p>
+            $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha podido conectar al servidor de Base de datos");
+            $query = "SELECT * FROM teachers";
+            $query_run = mysqli_query($connection, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                
+        ?>
+
+        <?php
+            while ($row = mysqli_fetch_assoc($query_run)) {
+        ?>
+                   <div class="card" style="width: 18rem; margin: 5px;">
+                        <?php echo '<img src="upload/'.$row['image_teachers'].'" class="card-img-top" alt="...">'?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['name'] ?></h5>
+                            <p class="card-text"><?php echo $row['description'] ?></p>
+                        </div>
                     </div>
-                </div>
+
+        <?php
+                }
+        ?>
+                
+        <?php
+            }
+            else {
+                echo"No Record Found";
+            }
+        ?>
                
             </div> <!-- row -->
         </div> <!-- row -->
