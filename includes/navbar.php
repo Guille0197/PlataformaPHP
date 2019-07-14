@@ -77,7 +77,7 @@
             <a class="collapse-item" href="#">
                 <i class="fas fa-users mr-2"></i>Acudientes
             </a>
-            <a class="collapse-item" href="#">
+            <a class="collapse-item" href="addparents.php">
                 <i class="fas fa-user-plus mr-2"></i>Añadir Acudiente
             </a>
             <a class="collapse-item" href="#">
