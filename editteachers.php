@@ -20,7 +20,7 @@ include('includes/navbar.php');
 
      <!--Content all-professors-->
                     <div class="row">
-                        <div class="container">
+                        <div class="container  mb-5">
                             <div class="card">
                                 <h5 class="card-header">Editar información</h5>
                                 <div class="card-body">

@@ -55,7 +55,7 @@
             <a class="collapse-item" href="#">
                 <i class="fas fa-list-ul mr-2"></i>Todos los Estudiantes
             </a>
-            <a class="collapse-item" href="#">
+            <a class="collapse-item" href="addstudent.php">
                 <i class="fas fa-user-plus mr-2"></i>Añadir Estudiante
             </a>
             <a class="collapse-item" href="#">
