@@ -77,9 +77,8 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
     ######## REGISTER STUDENT
     if (isset($_POST['add_student_btn'])) {
 
-        $usertype = $_POST['user_type_student'];
         $nameStudent = $_POST['name_student'];
-        $numberIdStudent = $_POST['numer_id_student'];
+        $numberidStudent = $_POST['numer_id_student'];
         $genderStudent = $_POST['gender_student'];
         $bdayStudent = $_POST['bday_student'];
         $addressStudent = $_POST['address_student'];
@@ -88,22 +87,28 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $bloodtypeStudent = $_POST['bloodtype_student'];
         $nationalityStudent = $_POST['nationality_student'];
         $imgStudent = $_FILES["img_student"]['name'];
-        
+        $usertype = $_POST['user_type_student'];
                     
-                    
+                    if ($nameStudent != null ) {
                         $query =  "INSERT INTO student (name_student,numer_id_student,gender_student,bday_student,address_student,level_student,bloodtype_student,nationality_student,img_student,user_type_student) 
-                        VALUES ('$usertype','$nameStudent','$numberIdStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$imgStudent')";
+                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$imgStudent','$usertype')";
                         $query_run = mysqli_query($connection, $query);
 
                     if ($query_run) {
                         move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
                         $_SESSION['success'] = "Student Profile added";
                         header('Location: allstudent.php');
-                        
+
                     }else {
 
                     $_SESSION['success'] = "Student Profile is not added";
-                        header('Location: allstudent.php');
+                        header('Location: 404.php');
+                    }
+
+                    }
+                    else {
+                        $_SESSION['success'] = "Password and confirm password does not match";
+                        header('Location: addteachers.php');
                     }
 
     }

@@ -101,18 +101,14 @@ include('includes/navbar.php');
                                                         <input type="text" name="nationality_student" class="form-control" placeholder="Nacionalidad" required>
                                                     </div> 
 
-                                                    <div class="form-group col-md-6">
-                                                        <label>Cargar una imagen de perfil</label>
+                                                    <!-- <div class="form-group col-md-6">
+                                                        <label>Cargar una imagen del estudiante</label>
                                                         <input type="file" name="img_student" id="img_student"  >
-                                                    </div> 
+                                                    </div>  -->
                                                 </div>
                                                 <button type="submit" name="add_student_btn" class="btn btn-success btn-lg btn-block"> Agregar estudiante </button> 
                                             </div>
                                         </form>
-<?php
-#}
-#}
-?>
                                 </div>
                             </div>
                         </div>
