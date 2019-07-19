@@ -17,67 +17,56 @@ include('includes/navbar.php');
                 </nav>
             </div>
 
-     <!--Content all-professors-->
+     <!--Content add student-->
                     <div class="row">
                         <div class="container  mb-5">
                             <div class="card">
                                 <h5 class="card-header">Ingrese un estudiante</h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Información del estudiante <i class="fas fa-user-graduate"></i></h5>
-<?php
-#$connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha podido conectar al servidor de Base de datos");
 
-    #if (isset($_POST['edit_btn'])) {
-      #  $id = $_POST['edit_id'];
-
-       # $query = "SELECT * FROM teachers WHERE id='$id' ";
-       # $query_run = mysqli_query($connection, $query);
-
-       # foreach ($query_run as $row) {
-?>
                                        <form action="code.php" method="POST" enctype="multipart/form-data">
-                                                <div class="form-group col-md-6 img-fluid">
+
+                                                <input type="hidden" name="user_type_student" value="student">
+                                                <!-- Imagen del estudiantes  -->
+                                                <div class="form-group col-md-6 img-fluid"> </div> 
                                                 
-                                                    </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <input type="hidden" name="edits_id">
                                                         <label>Nombre y apellido</label>
-                                                        <input type="text" name="name_edit" class="form-control" placeholder="Nombre completo" required>
+                                                        <input type="text" name="name_student" class="form-control" placeholder="Nombre completo" autofocus required>
                                                     </div>
                                                     
                                                     <div class="form-group col-md-6">
                                                         <label>Número de identidicación</label>
-                                                        <input type="text" name="numerid_edit" class="form-control" placeholder="Número de cédula" required>
+                                                        <input type="text" name="numer_id_student" class="form-control" placeholder="Número de cédula" required>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
-                                                        <label>Seleccione un género</label> <br>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
-                                                            <label class="form-check-label" for="inlineRadio1">Masculino</label>
-                                                        </div>
-                                                            <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Femenino">
-                                                            <label class="form-check-label" for="inlineRadio2">Femenino</label>
-                                                        </div>
+                                                        <label for="gender">Seleccione un género</label>
+                                                        <select required="true" id="gender" name="gender_student" class="form-control" >
+                                                            <option  disabled selected>Seleccione género</option>
+                                                            <option value="Masculino">Masculino</option>
+                                                            <option value="Femenino">Femenino</option>
+                                                        </select>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                     <label>Fecha de nacimiento</label>
-                                                    <input type="date" name="bday" max="3000-12-31" 
+                                                    <input type="date" name="bday_student" max="3000-12-31" 
                                                             min="1000-01-01" class="form-control" required>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label>Dirección</label>
-                                                        <input type="text" name="username_edit"  class="form-control" placeholder="Dirección" required>
+                                                        <input type="text" name="address_student"  class="form-control" placeholder="Dirección" required>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label>Seleccione tipo de sangre</label>
-                                                        <select name="department_edit" class="form-control" required>
-                                                            <option> Seleccione un grupo sanguíneo </option>
+                                                        <select name="bloodtype_student" class="form-control" required>
+                                                            <option  disabled selected> Seleccione un grupo sanguíneo </option>
                                                             <option value="1">A+</option>
                                                             <option value="2">A-</option>
                                                             <option value="3">B+</option>
@@ -91,13 +80,13 @@ include('includes/navbar.php');
                                                 
                                                     <div class="form-group col-md-6">
                                                         <label>Número de celular</label>
-                                                        <input type="number" name="phone_edit" class="form-control" placeholder="+507 6600-6600" required>
+                                                        <input type="number" name="phone_student" class="form-control" placeholder="+507 6600-6600">
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label>Seleccione el grado</label>
-                                                        <select name="department_edit" class="form-control" required>
-                                                            <option> Seleccione un grado </option>
+                                                        <select name="level_student" class="form-control" required>
+                                                            <option  disabled selected> Seleccione un grado </option>
                                                             <option value="1">1° Grado</option>
                                                             <option value="2">2° Grado</option>
                                                             <option value="3">3° Grado</option>
@@ -109,15 +98,15 @@ include('includes/navbar.php');
 
                                                     <div class="form-group col-md-6">
                                                         <label for="nationality">Nacionalidad</label>
-                                                        <input type="text" name="nationality" class="form-control" placeholder="Nacionalidad" required>
+                                                        <input type="text" name="nationality_student" class="form-control" placeholder="Nacionalidad" required>
                                                     </div> 
 
                                                     <div class="form-group col-md-6">
                                                         <label>Cargar una imagen de perfil</label>
-                                                        <input type="file" name="image_teachers" id="image_teachers"  >
+                                                        <input type="file" name="img_student" id="img_student"  >
                                                     </div> 
                                                 </div>
-                                                <button type="submit" name="update_teachers_btn" class="btn btn-success btn-lg btn-block"> Agregar estudiante </button> 
+                                                <button type="submit" name="add_student_btn" class="btn btn-success btn-lg btn-block"> Agregar estudiante </button> 
                                             </div>
                                         </form>
 <?php

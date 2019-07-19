@@ -41,7 +41,7 @@ include('includes/navbar.php');
             <div class="form-group">
                 <label for="department">Seleccione un departamento</label>
                 <select id="department" name="department" class="form-control" required>
-                    <option>Seleccione departamento</option>
+                    <option  disabled selected>Seleccione departamento</option>
                     <option value="Español">Español</option>
                     <option value="Matemáticas">Matemáticas</option>
                     <option value="Inglés">Inglés</option>
@@ -51,7 +51,7 @@ include('includes/navbar.php');
             <div class="form-group">
                 <label for="gender">Seleccione un género</label>
                 <select id="gender" name="gender" class="form-control" required>
-                    <option>Seleccione género</option>
+                    <option  disabled selected>Seleccione género</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>
@@ -89,7 +89,7 @@ include('includes/navbar.php');
 
 <div class="container-fluid">
 
-<!-- DataTales Example -->
+<!-- Data Tables  -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
 

@@ -73,8 +73,7 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
                                                 <div class="form-group col-md-6">
                                                     <label>Seleccione un departamento</label>
                                                     <select name="department_edit" class="form-control" required>
-                                                        <option><?php echo $row['department'] ?></option>
-                                                        <option> ------ </option>
+                                                        <option  disabled selected><?php echo $row['department'] ?></option>
                                                         <option value="Español">Español</option>
                                                         <option value="Matemáticas">Matemáticas</option>
                                                         <option value="Inglés">Inglés</option>
@@ -85,8 +84,7 @@ $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha
                                                 <div class="form-group col-md-6">
                                                     <label>Seleccione un género</label>
                                                     <select name="gender_edit" class="form-control" required>
-                                                        <option><?php echo $row['gender'] ?></option>
-                                                        <option> ------ </option>
+                                                        <option  disabled selected><?php echo $row['gender'] ?></option>
                                                         <option value="Masculino"> Masculino</option>
                                                         <option value="Femenino"> Femenino</option>
                                                     </select>
