@@ -131,9 +131,7 @@ include('includes/navbar.php');
             <th>Identificación</th>
             <th>Correo</th>
             <th>Usuario</th>
-            <th>Celular</th>
             <th>Departamento</th>
-            <th>Género</th>
             <th>Contraseña</th>
             <th>Editar</th>
             <th>Borrar</th>
@@ -151,9 +149,7 @@ include('includes/navbar.php');
               <td> <?php echo $row['numerid']; ?> </td>
               <td> <?php echo $row['email']; ?> </td>
               <td> <?php echo $row['username']; ?> </td>
-              <td> <?php echo $row['phone']; ?> </td>
               <td> <?php echo $row['department']; ?> </td>
-              <td> <?php echo $row['gender']; ?> </td>
               <td> <?php echo $row['password']; ?> </td>
 
               <td>

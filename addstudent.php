@@ -27,84 +27,84 @@ include('includes/navbar.php');
 
                                        <form action="code.php" method="POST" enctype="multipart/form-data">
 
-                                                <input type="hidden" name="user_type_student" value="student">
                                                 <!-- Imagen del estudiantes  -->
                                                 <div class="form-group col-md-6 img-fluid"> </div> 
                                                 
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
-                                                        <input type="hidden" name="edits_id">
                                                         <label>Nombre y apellido</label>
-                                                        <input type="text" name="name_student" class="form-control" placeholder="Nombre completo" autofocus required>
+                                                        <input type="text" name="namestudent" class="form-control" placeholder="Nombre completo" autofocus required>
                                                     </div>
                                                     
-                                                    <div class="form-group col-md-6">
+                                                     <div class="form-group col-md-6">
                                                         <label>Número de identidicación</label>
-                                                        <input type="text" name="numer_id_student" class="form-control" placeholder="Número de cédula" required>
+                                                        <input type="text" name="numberidstudent" class="form-control" placeholder="Número de cédula" required>
                                                     </div>
-
+                                                
                                                     <div class="form-group col-md-6">
-                                                        <label for="gender">Seleccione un género</label>
-                                                        <select required="true" id="gender" name="gender_student" class="form-control" >
+                                                        <label for="gender_student">Seleccione un género</label>
+                                                        <select required="true" id="genderstudent" name="genderstudent" class="form-control" >
                                                             <option  disabled selected>Seleccione género</option>
                                                             <option value="Masculino">Masculino</option>
                                                             <option value="Femenino">Femenino</option>
                                                         </select>
                                                     </div>
 
-                                                    <div class="form-group col-md-6">
+                                                     <div class="form-group col-md-6">
                                                     <label>Fecha de nacimiento</label>
-                                                    <input type="date" name="bday_student" max="3000-12-31" 
+                                                    <input type="date" name="bdaystudent" max="3000-12-31" 
                                                             min="1000-01-01" class="form-control" required>
-                                                    </div>
+                                                    </div> 
 
                                                     <div class="form-group col-md-6">
                                                         <label>Dirección</label>
-                                                        <input type="text" name="address_student"  class="form-control" placeholder="Dirección" required>
+                                                        <input type="text" name="addressstudent"  class="form-control" placeholder="Dirección" required>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label>Seleccione tipo de sangre</label>
-                                                        <select name="bloodtype_student" class="form-control" required>
+                                                        <select name="bloodtypestudent" class="form-control" required>
                                                             <option  disabled selected> Seleccione un grupo sanguíneo </option>
-                                                            <option value="1">A+</option>
-                                                            <option value="2">A-</option>
-                                                            <option value="3">B+</option>
-                                                            <option value="4">B-</option>
-                                                            <option value="5">AB+</option>
-                                                            <option value="6">AB-</option>
-                                                            <option value="5">O+</option>
-                                                            <option value="6">O-</option>
+                                                            <option value="A+">A+</option>
+                                                            <option value="A-">A-</option>
+                                                            <option value="B+">B+</option>
+                                                            <option value="B-">B-</option>
+                                                            <option value="AB+">AB+</option>
+                                                            <option value="AB-">AB-</option>
+                                                            <option value="O+">O+</option>
+                                                            <option value="O-">O-</option>
                                                         </select>
                                                     </div>                                               
                                                 
                                                     <div class="form-group col-md-6">
                                                         <label>Número de celular</label>
-                                                        <input type="number" name="phone_student" class="form-control" placeholder="+507 6600-6600">
+                                                        <input type="number" name="phonestudent" class="form-control" placeholder="+507 6600-6600">
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label>Seleccione el grado</label>
-                                                        <select name="level_student" class="form-control" required>
+                                                        <select name="levelstudent" class="form-control" required>
                                                             <option  disabled selected> Seleccione un grado </option>
-                                                            <option value="1">1° Grado</option>
-                                                            <option value="2">2° Grado</option>
-                                                            <option value="3">3° Grado</option>
-                                                            <option value="4">4° Grado</option>
-                                                            <option value="5">5° Grado</option>
-                                                            <option value="6">6° Grado</option>
+                                                            <option value="1 Grado">1° Grado</option>
+                                                            <option value="2 Grado">2° Grado</option>
+                                                            <option value="3 Grado">3° Grado</option>
+                                                            <option value="4 Grado">4° Grado</option>
+                                                            <option value="5 Grado">5° Grado</option>
+                                                            <option value="6 Grado">6° Grado</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
                                                         <label for="nationality">Nacionalidad</label>
-                                                        <input type="text" name="nationality_student" class="form-control" placeholder="Nacionalidad" required>
+                                                        <input type="text" name="nationalitystudent" class="form-control" placeholder="Nacionalidad" required>
+                                                    </div>  
+
+                                                    <div class="form-group col-md-6">
+                                                        <label>Cargar una imagen del estudiante</label>
+                                                        <input type="file" name="img_student" id="imgstudent"  >
                                                     </div> 
 
-                                                    <!-- <div class="form-group col-md-6">
-                                                        <label>Cargar una imagen del estudiante</label>
-                                                        <input type="file" name="img_student" id="img_student"  >
-                                                    </div>  -->
+                                                    <input type="hidden" name="usertype" value="student">
                                                 </div>
                                                 <button type="submit" name="add_student_btn" class="btn btn-success btn-lg btn-block"> Agregar estudiante </button> 
                                             </div>

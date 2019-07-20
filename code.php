@@ -77,39 +77,31 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
     ######## REGISTER STUDENT
     if (isset($_POST['add_student_btn'])) {
 
-        $nameStudent = $_POST['name_student'];
-        $numberidStudent = $_POST['numer_id_student'];
-        $genderStudent = $_POST['gender_student'];
-        $bdayStudent = $_POST['bday_student'];
-        $addressStudent = $_POST['address_student'];
-        $phoneStudent = $_POST['phone_student'];
-        $levelStudent = $_POST['level_student'];
-        $bloodtypeStudent = $_POST['bloodtype_student'];
-        $nationalityStudent = $_POST['nationality_student'];
+        $nameStudent = $_POST['namestudent'];
+        $numberidStudent = $_POST["numberidstudent"];
+        $genderStudent = $_POST['genderstudent'];
+        $bdayStudent = $_POST['bdaystudent'];
+        $addressStudent = $_POST['addressstudent'];
+        $phoneStudent = $_POST['phonestudent'];
+        $levelStudent = $_POST['levelstudent'];
+        $bloodtypeStudent = $_POST['bloodtypestudent'];
+        $nationalityStudent = $_POST['nationalitystudent'];
         $imgStudent = $_FILES["img_student"]['name'];
-        $usertype = $_POST['user_type_student'];
+        $usertype = $_POST['usertype'];
                     
-                    if ($nameStudent != null ) {
-                        $query =  "INSERT INTO student (name_student,numer_id_student,gender_student,bday_student,address_student,level_student,bloodtype_student,nationality_student,img_student,user_type_student) 
-                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$imgStudent','$usertype')";
-                        $query_run = mysqli_query($connection, $query);
-
-                    if ($query_run) {
+                
+                        $query =  "INSERT INTO student (namestudent,numberidstudent,genderstudent,bdaystudent,addressstudent,phonestudent,levelstudent,bloodtypestudent,nationalitystudent,usertype,img_student) 
+                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$usertype','$img_student')";
+                        $query_run = mysqli_query($connection, $query);      
+                        
+                        if ($query_run) {
                         move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
                         $_SESSION['success'] = "Student Profile added";
                         header('Location: allstudent.php');
-
-                    }else {
-
-                    $_SESSION['success'] = "Student Profile is not added";
-                        header('Location: 404.php');
-                    }
-
-                    }
-                    else {
-                        $_SESSION['success'] = "Password and confirm password does not match";
-                        header('Location: addteachers.php');
-                    }
+                        }else {
+                        $_SESSION['success'] = "Student Profile is not added";
+                            header('Location: addstudent.php');
+                        }
 
     }
 
