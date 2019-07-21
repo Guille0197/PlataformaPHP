@@ -15,5 +15,15 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
+  <!-- Delect Register BD -->
+  <script>
+      function Delete(id) {
+        if (confirm('¿Estás seguro que deseas borrar este registro?')) {
+          window.location.href = "allstudent.php?delete";
+        }
+      }
+
+  </script>
+
 
   

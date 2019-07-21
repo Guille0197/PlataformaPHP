@@ -81,21 +81,22 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $numberidStudent = $_POST["numberidstudent"];
         $genderStudent = $_POST['genderstudent'];
         $bdayStudent = $_POST['bdaystudent'];
+        $age = $_POST['age'];
         $addressStudent = $_POST['addressstudent'];
         $phoneStudent = $_POST['phonestudent'];
         $levelStudent = $_POST['levelstudent'];
         $bloodtypeStudent = $_POST['bloodtypestudent'];
         $nationalityStudent = $_POST['nationalitystudent'];
-        $imgStudent = $_FILES["img_student"]['name'];
         $usertype = $_POST['usertype'];
+        $img_student = $_FILES["img_student"]['name'];
                     
                 
-                        $query =  "INSERT INTO student (namestudent,numberidstudent,genderstudent,bdaystudent,addressstudent,phonestudent,levelstudent,bloodtypestudent,nationalitystudent,usertype,img_student) 
-                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$usertype','$img_student')";
+                        $query =  "INSERT INTO student (namestudent,numberidstudent,genderstudent,bdaystudent,age,addressstudent,phonestudent,levelstudent,bloodtypestudent,nationalitystudent,usertype,img_student) 
+                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$age','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$usertype','$img_student')";
                         $query_run = mysqli_query($connection, $query);      
                         
                         if ($query_run) {
-                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
+                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/student/".$_FILES["img_student"]["name"]);
                         $_SESSION['success'] = "Student Profile added";
                         header('Location: allstudent.php');
                         }else {
@@ -165,6 +166,7 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $numberidstudent = $_POST['numberid_student'];
         $genderStudent = $_POST['gender_student'];
         $bdaystudent = $_POST['bday_student'];
+        $age = $_POST['age'];
         $addressstudent = $_POST['address_student'];
         $bloodtypestudent = $_POST['bloodtype_student'];
         $phonestudent = $_POST['phone_student']; 
@@ -172,7 +174,7 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $nationalitystudent = $_POST['nationality_student'];
         
 
-        $query =  "UPDATE student SET namestudent ='$namestudent',numberidstudent ='$numberidstudent',genderStudent ='$genderStudent',bdaystudent ='$bdaystudent', addressstudent ='$addressstudent', phonestudent ='$phonestudent',levelstudent ='$levelstudent', bloodtypestudent ='$bloodtypestudent', nationalitystudent ='$nationalitystudent' WHERE id='$id' ";
+        $query =  "UPDATE student SET namestudent ='$namestudent',numberidstudent ='$numberidstudent',genderStudent ='$genderStudent',bdaystudent ='$bdaystudent',age = '$age', addressstudent ='$addressstudent', phonestudent ='$phonestudent',levelstudent ='$levelstudent', bloodtypestudent ='$bloodtypestudent', nationalitystudent ='$nationalitystudent' WHERE id='$id' ";
         $query_run = mysqli_query($connection, $query);
 
         if ($query_run ) {
@@ -224,6 +226,24 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
     }#
 
+######### DELETE STUDENT
+    if (isset($_POST['deletestudent_btn'])) {
+
+        $id = $_POST['deletestudent_id'];
+
+        $query =  "DELETE FROM student WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is deleted";
+            header('Location:allstudent.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not deleted";
+            header('Location:allstudent.php');
+        }
+
+    }#
 
     
 

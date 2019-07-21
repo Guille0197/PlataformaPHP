@@ -39,7 +39,7 @@ include('includes/navbar.php');
 
                          <form action="code.php" method="POST">
                             <div class="form-group col-md-6 img-fluid">
-                            <?php echo '<img src="upload/'.$row['img_student'].' "class="rounded float-left" style="width:200px; height:230px;"">'?>   
+                            <?php echo '<img src="upload/student/'.$row['img_student'].' "class="rounded float-left" style="width:200px; height:230px;"">'?>   
                                 </div>
                             <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -63,10 +63,15 @@ include('includes/navbar.php');
                                         </select>
                                     </div>
 
-                                        <div class="form-group col-md-6">
-                                    <label>Fecha de nacimiento</label>
-                                    <input type="date" name="bday_student" value="<?php echo $row['bdayStudent'] ?>" max="3000-12-31" 
-                                            min="1000-01-01" class="form-control" required>
+                                    <div class="form-group col-md-6">
+                                        <label>Fecha de nacimiento</label>
+                                        <input type="date" name="bday_student" value="<?php echo $row['bdayStudent'] ?>" max="3000-12-31" 
+                                                min="1000-01-01" class="form-control" required>
+                                    </div> 
+
+                                    <div class="form-group col-md-6">
+                                        <label>Edad del estudiante</label>
+                                        <input type="number" name="age" value="<?php echo $row['age'] ?>" class="form-control" placeholder="Edad del estudiante" required>
                                     </div> 
 
                                     <div class="form-group col-md-6">
@@ -98,25 +103,19 @@ include('includes/navbar.php');
                                         <label>Seleccione el grado</label>
                                         <select name="level_student" class="form-control" required>
                                             <option value="<?php $row['levelStudent'] ?>" disabled selected><?php echo $row['levelStudent'] ?></option>
-                                            <option value="1 Grado">1° Grado</option>
-                                            <option value="2 Grado">2° Grado</option>
-                                            <option value="3 Grado">3° Grado</option>
-                                            <option value="4 Grado">4° Grado</option>
-                                            <option value="5 Grado">5° Grado</option>
-                                            <option value="6 Grado">6° Grado</option>
+                                            <option value="1° Grado">1° Grado</option>
+                                            <option value="2° Grado">2° Grado</option>
+                                            <option value="3° Grado">3° Grado</option>
+                                            <option value="4° Grado">4° Grado</option>
+                                            <option value="5° Grado">5° Grado</option>
+                                            <option value="6° Grado">6° Grado</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="nationality">Nacionalidad</label>
                                         <input type="text" name="nationality_student" value="<?php echo $row['nationalityStudent'] ?>" class="form-control" placeholder="Nacionalidad" required>
-                                    </div>  
-
-                                    <div class="form-group col-md-6">
-                                        <label>Cargar una imagen del estudiante</label>
-                                        <input type="file" name="img_student" id="img_student"  >
-                                    </div> 
-                                
+                                    </div>                                
                             </div>
                                 <a href="allstudent.php" class="btn btn-danger btn-lg">Cancelar</a>
                                 <button type="submit" name="update_student_btn" class="btn btn-success btn-lg"> Actualizar </button> 

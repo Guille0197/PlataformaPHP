@@ -161,7 +161,7 @@ include('includes/navbar.php');
             <td>
                 <form action="code.php" method="post">
                   <input type="hidden" name="deleteteachers_id" value="<?php echo $row['id']; ?>">
-                  <button type="submit" name="deleteteachers_btn" class="btn btn-danger"><i class="fas fa-trash"></i> Borrar</button>
+                  <button type="submit" name="deleteteachers_btn" class="btn btn-danger" onClick="Delete()"><i class="fas fa-trash"></i> Borrar</button>
                 </form>
             </td>
               

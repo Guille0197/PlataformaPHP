@@ -63,11 +63,11 @@ include('includes/navbar.php');
             while ($row = mysqli_fetch_assoc($query_run)) {
         ?>
                    <div class="card" style="width: 18rem; margin: 5px;">
-                        <?php echo '<img src="upload/'.$row['image_teachers'].'" class="card-img-top" alt="...">'?>
+                        <?php echo '<img src="upload/'.$row['image_teachers'].'" style="width:100%; height:300px;" class="card-img-top" alt="...">'?>
                         <div class="card-body">
                             <h5 class="card-title"><i class="far fa-user"></i> <?php echo $row['name'] ?></h5>                            
                             <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-book"></i> <?php echo $row['department'] ?></h6>
-                            <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-envelope"></i> <?php echo $row['email'] ?></h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-envelope"></i> <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a></h6>
                             <p class="card-text"><i class="far fa-edit"></i> <?php echo $row['description'] ?></p>
                         </div>
                     </div>
