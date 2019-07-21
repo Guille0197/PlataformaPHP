@@ -11,7 +11,7 @@ include('includes/navbar.php');
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php">Tablero</a></li>
-                        <li class="breadcrumb-item"><a href="allteachers.php">Estudiantes</a></li>
+                        <li class="breadcrumb-item"><a href="allstudent.php">Estudiantes</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Añadir Estudiante</li>
                     </ol>
                 </nav>
@@ -101,7 +101,7 @@ include('includes/navbar.php');
 
                                                     <div class="form-group col-md-6">
                                                         <label>Cargar una imagen del estudiante</label>
-                                                        <input type="file" name="img_student" id="imgstudent"  >
+                                                        <input type="file" name="img_student" id="img_student"  >
                                                     </div> 
 
                                                     <input type="hidden" name="usertype" value="student">

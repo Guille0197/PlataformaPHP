@@ -1,0 +1,5 @@
+if (mysqli_query($connection, $query)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }

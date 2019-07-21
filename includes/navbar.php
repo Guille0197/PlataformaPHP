@@ -52,7 +52,7 @@
     <div id="collapseStuden" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">
+            <a class="collapse-item" href="allstudent.php">
                 <i class="fas fa-list-ul mr-2"></i>Todos los Estudiantes
             </a>
             <a class="collapse-item" href="addstudent.php">

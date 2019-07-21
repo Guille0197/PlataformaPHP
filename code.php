@@ -119,11 +119,11 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
         if ($query_run ) {
             $_SESSION['success'] = "Your Data is udpate";
-            header('Location:register.php');
+            header('Location:allstudent.php');
         }
         else {
            $_SESSION['status'] = "Your Data is not udpate";
-            header('Location:register.php');
+            header('Location:addstudent.php');
         }
     }#
 
@@ -153,6 +153,35 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         else {
            $_SESSION['status'] = "Your Data is not udpate";
             header('Location:addteachers.php');
+        }
+    }
+
+        ######### UPDATE STUDENT
+    if (isset($_POST['update_student_btn'])) {
+
+        $id = $_POST['editstudent_id'];
+
+        $namestudent = $_POST['name_student'];
+        $numberidstudent = $_POST['numberid_student'];
+        $genderStudent = $_POST['gender_student'];
+        $bdaystudent = $_POST['bday_student'];
+        $addressstudent = $_POST['address_student'];
+        $bloodtypestudent = $_POST['bloodtype_student'];
+        $phonestudent = $_POST['phone_student']; 
+        $levelstudent = $_POST['level_student'];
+        $nationalitystudent = $_POST['nationality_student'];
+        
+
+        $query =  "UPDATE student SET namestudent ='$namestudent',numberidstudent ='$numberidstudent',genderStudent ='$genderStudent',bdaystudent ='$bdaystudent', addressstudent ='$addressstudent', phonestudent ='$phonestudent',levelstudent ='$levelstudent', bloodtypestudent ='$bloodtypestudent', nationalitystudent ='$nationalitystudent' WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is udpate";
+            header('Location:allstudent.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not udpate";
+            header('Location:editstudent.php');
         }
     }
 
