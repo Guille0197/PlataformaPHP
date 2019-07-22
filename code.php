@@ -148,6 +148,27 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
     }
 
+    ######## REGISTER SUBJECT 
+    if (isset($_POST['subjectbtn'])) {
+
+        $subjectname = $_POST['subjectname'];
+        $subjectcode = $_POST['subjectcode'];
+        $levelgrade = $_POST['levelgrade'];
+                    
+                    
+                        $query =  "INSERT INTO subject (subjectname,subjectcode,levelgrade) 
+                        VALUES ('$subjectname','$subjectcode','$levelgrade')";
+                        $query_run = mysqli_query($connection, $query);
+
+                         if ($query_run ) {
+                            $_SESSION['success'] = "Your Data is udpate";
+                            header('Location:subject.php');
+                        } else {
+                            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+    }
+
+
     ######### UPDATE
     if (isset($_POST['updatebtn'])) {
 
@@ -162,11 +183,11 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
         if ($query_run ) {
             $_SESSION['success'] = "Your Data is udpate";
-            header('Location:allstudent.php');
+            header('Location:register.php');
         }
         else {
            $_SESSION['status'] = "Your Data is not udpate";
-            header('Location:addstudent.php');
+            header('Location:register_edit.php');
         }
     }#
 
@@ -246,7 +267,7 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $nationalityparent = $_POST['nationality_parent'];
         
 
-        $query =  "UPDATE parent SET namep_mother ='$namepmother',numid_mother ='$numidmother',profession_mother ='$professionmother',phone_mother ='$phonemother',namep_father = '$namepfather', numid_father ='$numidfather',profession_father ='$professionfather',phone_father ='$phonefather', addres_sparent ='$addressparent', nationality_parent ='$nationalityparent' WHERE id='$id' ";
+        $query =  "UPDATE parent SET namepmother ='$namepmother',numidmother ='$numidmother',professionmother ='$professionmother',phonemother ='$phonemother',namepfather = '$namepfather', numidfather ='$numidfather',professionfather ='$professionfather',phonefather ='$phonefather', addressparent ='$addressparent', nationalityparent ='$nationalityparent' WHERE id='$id' ";
         $query_run = mysqli_query($connection, $query);
 
         if ($query_run ) {
@@ -258,6 +279,27 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
              echo "Error: " . $query . "<br>" . mysqli_error($connection);
         }
     }     
+
+        ######### UPDATE SUBJECT
+    if (isset($_POST['btnupdate'])) {
+
+        $id = $_POST['edits_id'];
+        $subjectname = $_POST['edit_subjectname'];
+        $subjectcode = $_POST['edit_subjectcode'];
+        $levelgrade = $_POST['levelgrade'];
+
+        $query =  "UPDATE subject SET subjectname ='$subjectname', subjectcode ='$subjectcode', levelgrade ='$levelgrade' WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is udpate";
+            header('Location:subject.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not udpate";
+            header('Location:404.php');
+        }
+    }#
     
     ######### DELETE
     if (isset($_POST['delete_btn'])) {
@@ -312,6 +354,25 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         else {
            $_SESSION['status'] = "Your Data is not deleted";
             header('Location:allstudent.php');
+        }
+
+    }#
+
+      ######### DELETE SUBJECT
+    if (isset($_POST['btndelete'])) {
+
+        $id = $_POST['iddelete'];
+
+        $query =  "DELETE FROM subject WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is deleted";
+            header('Location:subject.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not deleted";
+            header('Location:subject.php');
         }
 
     }#

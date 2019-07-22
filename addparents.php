@@ -11,7 +11,7 @@ include('includes/navbar.php');
                 <nav class="container" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php">Tablero</a></li>
-                        <li class="breadcrumb-item"><a href="allteachers.php">Acudientes</a></li>
+                        <li class="breadcrumb-item"><a href="allstudent.php">Matricular estudiante</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Añadir Padres</li>
                     </ol>
                 </nav>

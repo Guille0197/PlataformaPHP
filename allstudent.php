@@ -18,15 +18,9 @@ include('includes/navbar.php');
     </nav>
     <!--Download Report-->
     <div class="dropdown">
-        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-download fa-sm text-white-50"></i>
-            Descargar
+        <a class="btn btn-primary" href="addparents.php" role="button">
+            Matricular Estudiante
         </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#"><i class="fas fa-file-excel mr-2"></i>Excel</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-file-pdf mr-2"></i>PDF</a>
-        </div>
     </div>
 </div>
 <!-- End of Main Content -->

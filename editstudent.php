@@ -59,7 +59,7 @@ include('includes/navbar.php');
                                                 
                                                     <div class="form-group col-md-6">
                                                     <label>Número de identidicación</label>
-                                                    <input type="text" name="numberid_student" value="<?php echo $row['numberidStudent'] ?>" class="form-control" placeholder="Número de cédula" required>
+                                                    <input type="text" name="numberid_student" value="<?php echo $row['numberidStudent'] ?>" class="form-control" placeholder="Número de cédula" disabled >
                                                 </div>
                                             
                                                 <div class="form-group col-md-6">
