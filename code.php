@@ -81,21 +81,22 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $numberidStudent = $_POST["numberidstudent"];
         $genderStudent = $_POST['genderstudent'];
         $bdayStudent = $_POST['bdaystudent'];
+        $age = $_POST['age'];
         $addressStudent = $_POST['addressstudent'];
         $phoneStudent = $_POST['phonestudent'];
         $levelStudent = $_POST['levelstudent'];
         $bloodtypeStudent = $_POST['bloodtypestudent'];
         $nationalityStudent = $_POST['nationalitystudent'];
-        $imgStudent = $_FILES["img_student"]['name'];
         $usertype = $_POST['usertype'];
+        $img_student = $_FILES["img_student"]['name'];
                     
                 
-                        $query =  "INSERT INTO student (namestudent,numberidstudent,genderstudent,bdaystudent,addressstudent,phonestudent,levelstudent,bloodtypestudent,nationalitystudent,usertype,img_student) 
-                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$usertype','$img_student')";
+                        $query =  "INSERT INTO student (namestudent,numberidstudent,genderstudent,bdaystudent,age,addressstudent,phonestudent,levelstudent,bloodtypestudent,nationalitystudent,usertype,img_student) 
+                        VALUES ('$nameStudent','$numberidStudent','$genderStudent','$bdayStudent','$age','$addressStudent','$phoneStudent','$levelStudent','$bloodtypeStudent','$nationalityStudent','$usertype','$img_student')";
                         $query_run = mysqli_query($connection, $query);      
                         
                         if ($query_run) {
-                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
+                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/student/".$_FILES["img_student"]["name"]);
                         $_SESSION['success'] = "Student Profile added";
                         header('Location: allstudent.php');
                         }else {
@@ -104,6 +105,69 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
                         }
 
     }
+
+        ######## REGISTER PARENT
+    if (isset($_POST['add_parent_btn'])) {
+
+        $numberidStudent = $_POST['numberidStudent'];
+
+        $namepmother = $_POST['namepmother'];
+        $numidmother = $_POST["numidmother"];
+        $professionmother = $_POST['professionmother'];
+        $phonemother = $_POST['phonemother'];
+
+        $namepfather = $_POST['namepfather'];
+        $numidfather = $_POST['numidfather'];
+        $professionfather = $_POST['professionfather'];
+        $phonefather = $_POST['phonefather'];
+
+        $addressparent = $_POST['addressparent'];
+        $nationalityparent = $_POST['nationalityparent'];
+        $imgidparent = $_FILES["imgidparent"]['name'];
+                    
+                
+                        $query =  "INSERT INTO parent (numberidStudent,namepmother,numidmother,professionmother,phonemother,namepfather,numidfather,professionfather,phonefather,addressparent,nationalityparent,imgidparent) 
+                        VALUES ('$numberidStudent','$namepmother','$numidmother','$professionmother','$phonemother','$namepfather','$numidfather','$professionfather','$phonefather','$addressparent','$nationalityparent','$imgidparent')";
+                        $query_run = mysqli_query($connection, $query);      
+                        
+                        if ($query_run) {
+                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
+                        $_SESSION['success'] = "Parent Profile added";
+                        header('Location: addstudent.php');
+                        }else {
+                        $_SESSION['success'] = "Parent Profile is not added";
+                            echo"Error";
+                            header('Location: 404.php');
+                        }
+
+                        if (mysqli_query($connection, $query)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+
+    }
+
+    ######## REGISTER SUBJECT 
+    if (isset($_POST['subjectbtn'])) {
+
+        $subjectname = $_POST['subjectname'];
+        $subjectcode = $_POST['subjectcode'];
+        $levelgrade = $_POST['levelgrade'];
+                    
+                    
+                        $query =  "INSERT INTO subject (subjectname,subjectcode,levelgrade) 
+                        VALUES ('$subjectname','$subjectcode','$levelgrade')";
+                        $query_run = mysqli_query($connection, $query);
+
+                         if ($query_run ) {
+                            $_SESSION['success'] = "Your Data is udpate";
+                            header('Location:subject.php');
+                        } else {
+                            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+    }
+
 
     ######### UPDATE
     if (isset($_POST['updatebtn'])) {
@@ -119,11 +183,11 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
         if ($query_run ) {
             $_SESSION['success'] = "Your Data is udpate";
-            header('Location:allstudent.php');
+            header('Location:register.php');
         }
         else {
            $_SESSION['status'] = "Your Data is not udpate";
-            header('Location:addstudent.php');
+            header('Location:register_edit.php');
         }
     }#
 
@@ -165,6 +229,7 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $numberidstudent = $_POST['numberid_student'];
         $genderStudent = $_POST['gender_student'];
         $bdaystudent = $_POST['bday_student'];
+        $age = $_POST['age'];
         $addressstudent = $_POST['address_student'];
         $bloodtypestudent = $_POST['bloodtype_student'];
         $phonestudent = $_POST['phone_student']; 
@@ -172,7 +237,7 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         $nationalitystudent = $_POST['nationality_student'];
         
 
-        $query =  "UPDATE student SET namestudent ='$namestudent',numberidstudent ='$numberidstudent',genderStudent ='$genderStudent',bdaystudent ='$bdaystudent', addressstudent ='$addressstudent', phonestudent ='$phonestudent',levelstudent ='$levelstudent', bloodtypestudent ='$bloodtypestudent', nationalitystudent ='$nationalitystudent' WHERE id='$id' ";
+        $query =  "UPDATE student SET namestudent ='$namestudent',numberidstudent ='$numberidstudent',genderStudent ='$genderStudent',bdaystudent ='$bdaystudent',age = '$age', addressstudent ='$addressstudent', phonestudent ='$phonestudent',levelstudent ='$levelstudent', bloodtypestudent ='$bloodtypestudent', nationalitystudent ='$nationalitystudent' WHERE id='$id' ";
         $query_run = mysqli_query($connection, $query);
 
         if ($query_run ) {
@@ -185,6 +250,56 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         }
     }
 
+   ######### UPDATE PARENT
+    if (isset($_POST['update_parent_btn'])) {
+
+        $id = $_POST['parent_id'];
+
+        $namepmother = $_POST['namep_mother'];
+        $numidmother = $_POST['numid_mother'];
+        $professionmother = $_POST['profession_mother'];
+        $phonemother = $_POST['phone_mother'];
+        $namepfather = $_POST['namep_father'];
+        $numidfather = $_POST['numid_father'];
+        $professionfather = $_POST['profession_father'];
+        $phonefather = $_POST['phone_father']; 
+        $addressparent = $_POST['address_parent'];
+        $nationalityparent = $_POST['nationality_parent'];
+        
+
+        $query =  "UPDATE parent SET namepmother ='$namepmother',numidmother ='$numidmother',professionmother ='$professionmother',phonemother ='$phonemother',namepfather = '$namepfather', numidfather ='$numidfather',professionfather ='$professionfather',phonefather ='$phonefather', addressparent ='$addressparent', nationalityparent ='$nationalityparent' WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is udpate";
+            header('Location:allstudent.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not udpate";
+             echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        }
+    }     
+
+        ######### UPDATE SUBJECT
+    if (isset($_POST['btnupdate'])) {
+
+        $id = $_POST['edits_id'];
+        $subjectname = $_POST['edit_subjectname'];
+        $subjectcode = $_POST['edit_subjectcode'];
+        $levelgrade = $_POST['levelgrade'];
+
+        $query =  "UPDATE subject SET subjectname ='$subjectname', subjectcode ='$subjectcode', levelgrade ='$levelgrade' WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is udpate";
+            header('Location:subject.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not udpate";
+            header('Location:404.php');
+        }
+    }#
     
     ######### DELETE
     if (isset($_POST['delete_btn'])) {
@@ -224,6 +339,43 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
     }#
 
+######### DELETE STUDENT
+    if (isset($_POST['deletestudent_btn'])) {
+
+        $id = $_POST['deletestudent_id'];
+
+        $query =  "DELETE FROM student WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is deleted";
+            header('Location:allstudent.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not deleted";
+            header('Location:allstudent.php');
+        }
+
+    }#
+
+      ######### DELETE SUBJECT
+    if (isset($_POST['btndelete'])) {
+
+        $id = $_POST['iddelete'];
+
+        $query =  "DELETE FROM subject WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is deleted";
+            header('Location:subject.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not deleted";
+            header('Location:subject.php');
+        }
+
+    }#
 
     
 

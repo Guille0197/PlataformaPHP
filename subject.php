@@ -9,7 +9,7 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregue información de administradores</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registro de Asignatura</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -19,28 +19,29 @@ include('includes/navbar.php');
         <div class="modal-body">
 
             <div class="form-group">
-                <label> Nombre de usuario </label>
-                <input type="text" name="username" class="form-control" placeholder="Ingrese nombre de usuario">
+                <label> Nombre de la Asignatura </label>
+                <input type="text" name="subjectname" class="form-control" placeholder="Ingrese el nombre" require>
             </div>
             <div class="form-group">
-                <label>Correo</label>
-                <input type="email" name="email" class="form-control" placeholder="Ingrese correo">
+                <label>Código de la asignatura</label>
+                <input type="text" name="subjectcode" class="form-control" placeholder="Ingrese el código" require>
             </div>
-            <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" name="password" class="form-control" placeholder="Ingrese Contraseña">
-            </div>
-            <div class="form-group">
-                <label>Confirme Contraseña</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirme Contraseña">
-            </div>
-
-            <input type="hidden" name="usertype" value="admin">
-        
+            <div class="form-group ">
+                <label>Seleccione el grado para la asignatura</label>
+                <select name="levelgrade" class="form-control" required>
+                    <option  disabled selected> Seleccione un grado </option>
+                    <option value="1° Grado">1° Grado</option>
+                    <option value="2° Grado">2° Grado</option>
+                    <option value="3° Grado">3° Grado</option>
+                    <option value="4° Grado">4° Grado</option>
+                    <option value="5° Grado">5° Grado</option>
+                    <option value="6° Grado">6° Grado</option>
+                </select>
+            </div>        
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="subjectbtn" class="btn btn-primary">Save</button>
         </div>
       </form>
     </div>
@@ -55,9 +56,9 @@ include('includes/navbar.php');
   <div class="card-header py-3">
 
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Perfil de administradores</h1>
+          <h1 class="h3 mb-0 text-gray-800">Listado de Asignaturas</h1>
           <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#addadminprofile">
-            <i class="fas fa-user-plus"></i> Añadir perfil de administradores</button>
+            <i class="fas fa-user-plus"></i> Añadir asignatura</button>
       </div>
   </div>
 
@@ -81,17 +82,16 @@ include('includes/navbar.php');
     <?php 
       $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha podido conectar al servidor de Base de datos");
 
-      $query = "SELECT * FROM registeradmin";
+      $query = "SELECT * FROM subject";
       $query_run = mysqli_query($connection,$query);
     ?>
       <table class="table" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>ID </th>
-            <th>Nombre de usuario </th>
-            <th>Correo </th>
-            <th>Contraseña</th>
-            <th>Tipo de usuario </th>
+            <th>Nombre de la asignatura </th>
+            <th>Código de la asignatura </th>
+            <th>Grado asignado</th>
             <th>EDITAR </th>
             <th>ELIMINAR </th>
           </tr>
@@ -104,27 +104,26 @@ include('includes/navbar.php');
         ?>
             <tr>
               <td> <?php echo $row['id']; ?> </td>
-              <td> <?php echo $row['username']; ?> </td>
-              <td> <?php echo $row['email']; ?> </td>
-              <td> <?php echo $row['password']; ?> </td>
-              <td> <?php echo $row['usertype']; ?> </td>
+              <td> <?php echo $row['subjectname']; ?> </td>
+              <td> <?php echo $row['subjectcode']; ?> </td>
+              <td> <?php echo $row['levelgrade']; ?> </td>
               <td>
-                <form action="register_edit.php" method="post">
-                    <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
-                    <button  type="submit" name="edit_btn" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</button>
+                <form action="subject_edit.php" method="post">
+                    <input type="hidden" name="subedit_id" value="<?php echo $row['id']; ?>">
+                    <button  type="submit" name="subedit_btn" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</button>
                 </form>
             </td>
             <td>
                 <form action="code.php" method="post">
-                  <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                  <button type="submit" name="delete_btn" class="btn btn-danger"><i class="fas fa-trash"></i> ELIMINAR</button>
+                  <input type="hidden" name="iddelete" value="<?php echo $row['id']; ?>">
+                  <button type="submit" name="btndelete" class="btn btn-danger"><i class="fas fa-trash"></i> ELIMINAR</button>
                 </form>
             </td>
         <?php
               }
             }
           else {
-          echo "No record Found";
+          echo "No tenemos registro de asignatura";
           }
         ?>
         </tbody>

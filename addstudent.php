@@ -50,10 +50,15 @@ include('includes/navbar.php');
                                                         </select>
                                                     </div>
 
-                                                     <div class="form-group col-md-6">
+                                                    <div class="form-group col-md-6">
                                                     <label>Fecha de nacimiento</label>
                                                     <input type="date" name="bdaystudent" max="3000-12-31" 
                                                             min="1000-01-01" class="form-control" required>
+                                                    </div> 
+
+                                                    <div class="form-group col-md-6">
+                                                    <label>Edad del estudiante</label>
+                                                     <input type="number" name="age" class="form-control" placeholder="Edad del estudiante" required>
                                                     </div> 
 
                                                     <div class="form-group col-md-6">
@@ -85,12 +90,12 @@ include('includes/navbar.php');
                                                         <label>Seleccione el grado</label>
                                                         <select name="levelstudent" class="form-control" required>
                                                             <option  disabled selected> Seleccione un grado </option>
-                                                            <option value="1 Grado">1° Grado</option>
-                                                            <option value="2 Grado">2° Grado</option>
-                                                            <option value="3 Grado">3° Grado</option>
-                                                            <option value="4 Grado">4° Grado</option>
-                                                            <option value="5 Grado">5° Grado</option>
-                                                            <option value="6 Grado">6° Grado</option>
+                                                            <option value="1° Grado">1° Grado</option>
+                                                            <option value="2° Grado">2° Grado</option>
+                                                            <option value="3° Grado">3° Grado</option>
+                                                            <option value="4° Grado">4° Grado</option>
+                                                            <option value="5° Grado">5° Grado</option>
+                                                            <option value="6° Grado">6° Grado</option>
                                                         </select>
                                                     </div>
 

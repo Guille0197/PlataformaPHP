@@ -18,15 +18,9 @@ include('includes/navbar.php');
     </nav>
     <!--Download Report-->
     <div class="dropdown">
-        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-download fa-sm text-white-50"></i>
-            Descargar
+        <a class="btn btn-primary" href="addparents.php" role="button">
+            Matricular Estudiante
         </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#"><i class="fas fa-file-excel mr-2"></i>Excel</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-file-pdf mr-2"></i>PDF</a>
-        </div>
     </div>
 </div>
 <!-- End of Main Content -->
@@ -63,21 +57,24 @@ include('includes/navbar.php');
             while ($row = mysqli_fetch_assoc($query_run)) {
         ?>
                    <div class="card" style="width: 18rem; margin: 5px;">
-                        <?php echo '<img src="upload/'.$row['img_student'].'" class="card-img-top" alt="...">'?>
+                        <?php echo '<img src="upload/student/'.$row['img_student'].'" class="card-img-top" style="width:100%; height:300px;" alt="Imagen del Estudiante">'?>
                         <div class="card-body">
                             <h5 class="card-title"><i class="far fa-user"></i> <?php echo $row['nameStudent'] ?></h5>                            
-                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-book"></i> <?php echo $row['genderStudent'] ?></h6>
-                            <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-envelope"></i> <?php echo $row['addressStudent'] ?></h6>
-                            <p class="card-text"><i class="far fa-edit"></i> <?php echo $row['bdayStudent'] ?></p>
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-id-card"></i> <?php echo $row['numberidStudent'] ?></h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-school"></i> <?php echo $row['levelStudent'] ?></h6>
+                            <h6  class="card-subtitle mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <?php echo $row['addressStudent'] ?></h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-birthday-cake"></i> <?php echo $row['bdayStudent'] ?> | <?php echo $row['age'] ?> Años</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-passport"></i> Nacionalidad <?php echo $row['nationalityStudent'] ?></h6>
+                            
 
                             <div >
                                 <form action="editstudent.php" method="post">
                                     <input type="hidden" name="editstudent_id" value="<?php echo $row['id']; ?>">
-                                    <button  type="submit" name="editstudent_btn" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Editar</button>
-                                </form> <br>
-                                <form action="#" method="post">
+                                    <button  type="submit" name="editstudent_btn" class="btn btn-warning btn-lg btn-block"><i class="fas fa-edit"></i> Editar</button>
+                                </form> <hr/>
+                                <form action="code.php" method="post">
                                     <input type="hidden" name="deletestudent_id" value="<?php echo $row['id']; ?>">
-                                    <button type="submit" name="delete_btn" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Borrar</button>
+                                    <button type="submit" name="deletestudent_btn" class="btn btn-danger btn-lg btn-block" onClick="Delete()"><i class="fas fa-trash"></i> Borrar</button>
                                 </form>
                             </div>
                              
@@ -91,7 +88,7 @@ include('includes/navbar.php');
         <?php
             }
             else {
-                echo"No Record Found";
+                echo"No tenemos ningun registro de estudiante";
             }
         ?>
                
@@ -103,8 +100,6 @@ include('includes/navbar.php');
 </div>
 
 <!--End Content-->
-
-
 <?php
 include('includes/scripts.php');
 include('includes/footer.php');
