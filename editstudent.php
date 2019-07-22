@@ -24,7 +24,8 @@ include('includes/navbar.php');
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Estudiante</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Acudientes</a> 
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Calificaciones</a> 
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Acudientes</a>  
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -139,13 +140,69 @@ include('includes/navbar.php');
                             </div>
                             <!--  -->
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                    <!--Content all-professors-->
+                                                             <!--Content notes-->
                                 <div class="row">
+                                    <div class="container  mb-5">
+                                        <div class="card">
+                                            <h5 class="card-header">Ingrese las calificaciones</h5>
+                                            <div class="card-body">
+                                                        <form>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefaultUsername">Español</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupPrepend2">Español</span>
+                                                                    </div>
+                                                                    <input type="number" class="form-control" id="validationDefaultUsername" placeholder="Ingrese la nota" aria-describedby="inputGroupPrepend2" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefaultUsername">Matemáticas</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupPrepend2">Matemáticas</span>
+                                                                    </div>
+                                                                    <input type="number" class="form-control" id="validationDefaultUsername" placeholder="Ingrese la nota" aria-describedby="inputGroupPrepend2" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefaultUsername">Inglés</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupPrepend2">Inglés</span>
+                                                                    </div>
+                                                                    <input type="number" class="form-control" id="validationDefaultUsername" placeholder="Ingrese la nota" aria-describedby="inputGroupPrepend2" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefaultUsername">Ciencias</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupPrepend2">Ciencias</span>
+                                                                    </div>
+                                                                    <input type="number" class="form-control" id="validationDefaultUsername" placeholder="Ingrese la nota" aria-describedby="inputGroupPrepend2" required>
+                                                                </div>
+                                                            </div>
+
+
+                                                        <button type="submit" class="btn btn-primary">Registar</button>
+                                                        </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Content-->
+                            </div><!--Notes-->
+
+                                    <!-- Parent-->
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                         <div class="row">
                                     <div class="container  mb-5">
                                         <div class="card">
                                             <h5 class="card-header">Ingrese a los Acudientes</h5>
                                             <div class="card-body">
-                                                <h5 class="card-title">Información de los padres</i></h5>
+                                            <h5 class="card-title">Información de los padres</i></h5>
+                                            <div class="card-body">
         <!--Codigo PHP-->
     <?php
         $connection = mysqli_connect("localhost","root","","projectbd")or die ("No se ha podido conectar al servidor de Base de datos");
@@ -158,7 +215,15 @@ include('includes/navbar.php');
 
         foreach ($query_run as $row) {
     ?>
-                                                <form action="code.php" method="POST" enctype="multipart/form-data">
+                                                
+                                                    <?php
+                                                                }
+                                                            }
+                                                            else {
+                                                            echo "No tenemos registro de los acudientes";
+                                                            }
+                                                    ?>
+                                                    <form action="code.php" method="POST" enctype="multipart/form-data">    
                                                  <div class="form-group col-md-6 img-fluid">
                                                     <?php echo '<img src="upload/'.$row['imgidparent'].' "class="rounded float-left" style="width:200px; height:230px;"">'?>   
                                                 </div>
@@ -217,19 +282,14 @@ include('includes/navbar.php');
                                                             </div>
                                                         </div>
                                                         <button type="submit" name="update_parent_btn" class="btn btn-success btn-lg btn-block"> Actualizar datos de los acudientes </button> 
-                                                    </form>
-                                                    <?php
-                                                                }
-                                                            }
-                                                            else {
-                                                            echo "No tenemos registro de los acudientes";
-                                                            }
-                                                    ?>
+                                             </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--End Content-->
+                                                            
+                            
                             </div>
                         </div>
 

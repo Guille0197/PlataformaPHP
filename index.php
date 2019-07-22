@@ -140,15 +140,7 @@ include('includes/navbar.php');
   </div> <!-- Content Row -->
 
 
-  
-
-              
-
-
-
-
-
-
+  <iframe src="https://calendar.google.com/calendar/embed?src=es.pa%23holiday%40group.v.calendar.google.com&ctz=America%2FPanama" style="border: 0" width="700" height="500" frameborder="0" scrolling="no"></iframe>
 
   <?php
 include('includes/scripts.php');

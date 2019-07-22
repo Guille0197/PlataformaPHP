@@ -64,7 +64,7 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="register.php">
+  <a class="nav-link" href="notes.php">
     <i class="fas fa-clipboard-list"></i>
     <span>Notas</span></a>
 </li>
