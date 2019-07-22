@@ -21,7 +21,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Interface
+  Menú Principal
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
@@ -44,6 +44,21 @@
 </li>
 
 <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFathers" aria-expanded="true"
+        aria-controls="collapseFathers">
+        <i class="fas fa-restroom"></i>
+        <span>Acudientes</span>
+    </a>
+    <div id="collapseFathers" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="addparents.php">
+                <i class="fas fa-user-plus mr-2"></i>Añadir Acudiente
+            </a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStuden"
         aria-expanded="true" aria-controls="collapseStuden">
         <i class="fas fa-user-graduate"></i>
@@ -55,38 +70,9 @@
             <a class="collapse-item" href="allstudent.php">
                 <i class="fas fa-list-ul mr-2"></i>Todos los Estudiantes
             </a>
-            <a class="collapse-item" href="addstudent.php">
-                <i class="fas fa-user-plus mr-2"></i>Añadir Estudiante
-            </a>
-            <a class="collapse-item" href="#">
-                <i class="fas fa-edit mr-2"></i>Editar Estudiante
-            </a>
         </div>
     </div>
 </li>
-
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFathers" aria-expanded="true"
-        aria-controls="collapseFathers">
-        <i class="fas fa-restroom"></i>
-        <span>Acudientes</span>
-    </a>
-    <div id="collapseFathers" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">
-                <i class="fas fa-users mr-2"></i>Acudientes
-            </a>
-            <a class="collapse-item" href="addparents.php">
-                <i class="fas fa-user-plus mr-2"></i>Añadir Acudiente
-            </a>
-            <a class="collapse-item" href="#">
-                <i class="fas fa-edit mr-2"></i>Editar Acudiente
-            </a>
-        </div>
-    </div>
-</li>
-
 
 <li class="nav-item">
   <a class="nav-link" href="register.php">

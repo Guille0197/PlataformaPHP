@@ -5,6 +5,13 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+    <nav class="container" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.php">Tablero</a></li>
+            <li class="breadcrumb-item"><a href="allteachers.php">Profesores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Añadir Profesores</li>
+        </ol>
+    </nav>
 <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -57,12 +64,12 @@ include('includes/navbar.php');
                 </select>
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password" require>
+                <label>Contraseña</label>
+                <input type="password" name="password" class="form-control" placeholder="Ingrese una contraseña" require>
             </div>
             <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password" require>
+                <label>Confirmar contraseña</label>
+                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirme la contraseña" require>
             </div>
             <div class="form-group">
                 <label for="textarea">Descripción</label>

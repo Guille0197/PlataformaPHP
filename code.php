@@ -106,6 +106,48 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
 
     }
 
+        ######## REGISTER PARENT
+    if (isset($_POST['add_parent_btn'])) {
+
+        $numberidStudent = $_POST['numberidStudent'];
+
+        $namepmother = $_POST['namepmother'];
+        $numidmother = $_POST["numidmother"];
+        $professionmother = $_POST['professionmother'];
+        $phonemother = $_POST['phonemother'];
+
+        $namepfather = $_POST['namepfather'];
+        $numidfather = $_POST['numidfather'];
+        $professionfather = $_POST['professionfather'];
+        $phonefather = $_POST['phonefather'];
+
+        $addressparent = $_POST['addressparent'];
+        $nationalityparent = $_POST['nationalityparent'];
+        $imgidparent = $_FILES["imgidparent"]['name'];
+                    
+                
+                        $query =  "INSERT INTO parent (numberidStudent,namepmother,numidmother,professionmother,phonemother,namepfather,numidfather,professionfather,phonefather,addressparent,nationalityparent,imgidparent) 
+                        VALUES ('$numberidStudent','$namepmother','$numidmother','$professionmother','$phonemother','$namepfather','$numidfather','$professionfather','$phonefather','$addressparent','$nationalityparent','$imgidparent')";
+                        $query_run = mysqli_query($connection, $query);      
+                        
+                        if ($query_run) {
+                        move_uploaded_file($_FILES["img_student"]["tmp_name"], "upload/".$_FILES["img_student"]["name"]);
+                        $_SESSION['success'] = "Parent Profile added";
+                        header('Location: addstudent.php');
+                        }else {
+                        $_SESSION['success'] = "Parent Profile is not added";
+                            echo"Error";
+                            header('Location: 404.php');
+                        }
+
+                        if (mysqli_query($connection, $query)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+
+    }
+
     ######### UPDATE
     if (isset($_POST['updatebtn'])) {
 
@@ -187,6 +229,35 @@ $connection = mysqli_connect("localhost", "root", "", "projectbd");
         }
     }
 
+   ######### UPDATE PARENT
+    if (isset($_POST['update_parent_btn'])) {
+
+        $id = $_POST['parent_id'];
+
+        $namepmother = $_POST['namep_mother'];
+        $numidmother = $_POST['numid_mother'];
+        $professionmother = $_POST['profession_mother'];
+        $phonemother = $_POST['phone_mother'];
+        $namepfather = $_POST['namep_father'];
+        $numidfather = $_POST['numid_father'];
+        $professionfather = $_POST['profession_father'];
+        $phonefather = $_POST['phone_father']; 
+        $addressparent = $_POST['address_parent'];
+        $nationalityparent = $_POST['nationality_parent'];
+        
+
+        $query =  "UPDATE parent SET namep_mother ='$namepmother',numid_mother ='$numidmother',profession_mother ='$professionmother',phone_mother ='$phonemother',namep_father = '$namepfather', numid_father ='$numidfather',profession_father ='$professionfather',phone_father ='$phonefather', addres_sparent ='$addressparent', nationality_parent ='$nationalityparent' WHERE id='$id' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if ($query_run ) {
+            $_SESSION['success'] = "Your Data is udpate";
+            header('Location:allstudent.php');
+        }
+        else {
+           $_SESSION['status'] = "Your Data is not udpate";
+             echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        }
+    }     
     
     ######### DELETE
     if (isset($_POST['delete_btn'])) {

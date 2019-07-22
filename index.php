@@ -42,7 +42,7 @@ include('includes/navbar.php');
               </div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+              <i class="fas fa-clipboard-list fa-2x text-gray-30"></i>
             </div>
           </div>
         </div>
@@ -70,7 +70,35 @@ include('includes/navbar.php');
               </div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-user-tie fa-2x text-gray-300"></i>
+              <i class="fas fa-user-tie fa-2x text-gray-30"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estudiantes -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Estudiantes registrados</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <?php
+              require 'dbconfig.php';
+
+              $query = "SELECT id FROM student ORDER BY id";
+              $query_run = mysqli_query($connection, $query);
+              
+              $row = mysqli_num_rows($query_run);
+              echo '<h1>'.$row.'</h1>';
+              
+              ?>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-child fa-2x text-gray-30"></i>
             </div>
           </div>
         </div>
